@@ -3,10 +3,10 @@
 namespace Mal2Anilist;
 
 /**
- * Class Mal2Anilist
- * @package Mal2Anilist
+ * Class Converter
+ * @package Converter
  */
-class Mal2Anilist
+class Converter
 {
     /**
      * @param int $malId

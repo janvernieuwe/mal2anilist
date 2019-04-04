@@ -4,10 +4,7 @@
     </listeners>
     <testsuites>
         <testsuite name="Unit">
-            <directory>./test/JikanTest</directory>
-        </testsuite>
-        <testsuite name="Fast">
-            <directory>./test/JikanTest/JikanTest.php</directory>
+            <directory>./test</directory>
         </testsuite>
     </testsuites>
     <filter>
