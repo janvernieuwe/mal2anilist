@@ -1,0 +1,33 @@
+
+-
+    request:
+        method: POST
+        url: 'https://graphql.anilist.co'
+        headers:
+            Host: graphql.anilist.co
+            Content-Type: application/json
+            Content-Length: '132'
+        body: '{"query":"query($id: Int, $type: MediaType){Media(idMal: $id, type: $type){siteUrl}}","variables":{"id":99999999999,"type":"ANIME"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Date: 'Thu, 04 Apr 2019 19:10:17 GMT'
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            Set-Cookie: '__cfduid=df357b6987511a10462b749524de683641554405017; expires=Fri, 03-Apr-20 19:10:17 GMT; path=/; domain=.anilist.co; HttpOnly; Secure, laravel_session=bjtWzH7u4zgjqDuhWwS94KB3XTx5wEiqZovK3T0n; expires=Thu, 11-Apr-2019 19:10:17 GMT; Max-Age=604800; path=/; httponly'
+            Cache-Control: 'no-cache, private'
+            X-RateLimit-Reset: '1554405074'
+            X-RateLimit-Limit: '90'
+            X-RateLimit-Remaining: '87'
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods: 'GET, POST, OPTIONS'
+            Access-Control-Allow-Headers: 'Authorization,Accept,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range'
+            Access-Control-Expose-Headers: 'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Content-Length, Content-Range'
+            Expect-CT: 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"'
+            Server: cloudflare
+            CF-RAY: 4c2594dcbbc1ce7d-LHR
+        body: '{"errors":[{"message":"Variable \"$id\" got invalid value 99999999999; Expected type Int; Int cannot represent non 32-bit signed integer value: 99999999999","status":400}],"data":null}'

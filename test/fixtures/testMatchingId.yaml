@@ -1,0 +1,36 @@
+
+-
+    request:
+        method: POST
+        url: 'https://graphql.anilist.co'
+        headers:
+            Host: graphql.anilist.co
+            Content-Type: application/json
+            Content-Length: '126'
+        body: '{"query":"query($id: Int, $type: MediaType){Media(idMal: $id, type: $type){siteUrl}}","variables":{"id":37430,"type":"ANIME"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 04 Apr 2019 19:08:11 GMT'
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            Set-Cookie: '__cfduid=d6336d577018821c38be438cb0fe3bfe61554404891; expires=Fri, 03-Apr-20 19:08:11 GMT; path=/; domain=.anilist.co; HttpOnly; Secure, laravel_session=kXblUNxD8EuHavwyfpJ0Cdum3MPFf5NWsz2CtXU1; expires=Thu, 11-Apr-2019 19:08:11 GMT; Max-Age=604800; path=/; httponly'
+            Cache-Control: 'no-cache, private'
+            X-RateLimit-Reset: '1554404951'
+            X-RateLimit-Limit: '90'
+            X-RateLimit-Remaining: '89'
+            X-Frame-Options: SAMEORIGIN
+            X-XSS-Protection: '1; mode=block'
+            X-Content-Type-Options: nosniff
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods: 'GET, POST, OPTIONS'
+            Access-Control-Allow-Headers: 'Authorization,Accept,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range'
+            Access-Control-Expose-Headers: 'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Content-Length, Content-Range'
+            Expect-CT: 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"'
+            Server: cloudflare
+            CF-RAY: 4c2591cd9b57ce21-LHR
+        body: '{"data":{"Media":{"siteUrl":"https:\/\/anilist.co\/anime\/101280"}}}'
