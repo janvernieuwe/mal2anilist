@@ -14,27 +14,27 @@ class Converter
      */
     public function getAnilistUrl(int $malId): ?string
     {
-        return $this->request($malId)->data->Media->siteUrl ?? null;
+        $query = 'query($id: Int, $type: MediaType){Media(idMal: $id, type: $type){siteUrl}}';
+        $data = json_encode(['query' => $query, 'variables' => ['id' => $malId, 'type' => 'ANIME']]);
+        return $this->request($data)->data->Media->siteUrl ?? null;
     }
 
     /**
-     * @param int $id
+     * @param string $body
      * @return \stdClass
      */
-    private function request(int $id): \stdClass
+    private function request(string $body): \stdClass
     {
-        $query = 'query($id: Int, $type: MediaType){Media(idMal: $id, type: $type){siteUrl}}';
-        $data_string = json_encode(['query' => $query, 'variables' => ['id' => $id, 'type' => 'ANIME']]);
         $ch = curl_init('https://graphql.anilist.co');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt(
             $ch,
             CURLOPT_HTTPHEADER,
             [
                 'Content-Type: application/json',
-                'Content-Length: ' . strlen($data_string),
+                'Content-Length: ' . strlen($body),
             ]
         );
         $result = curl_exec($ch);
