@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/janvernieuwe/mal2anilist/v/stable)](https://packagist.org/packages/janvernieuwe/mal2anilist)
+[![Total Downloads](https://poser.pugx.org/janvernieuwe/mal2anilist/downloads)](https://packagist.org/packages/janvernieuwe/mal2anilist)
+[![License](https://poser.pugx.org/janvernieuwe/mal2anilist/license)](https://packagist.org/packages/janvernieuwe/mal2anilist)
+
 # Converter
 
 This is a simple lib to convert myanimelist id's to a anilist url.
