@@ -1,20 +1,28 @@
 name: GrumPHP
 
 on: [push]
-
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  run:    
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      max-parallel: 3
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        php-versions: ['7.2', '7.3', '7.4']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
+    - name: Checkout
     - uses: actions/checkout@v1
-
+    - name: Install PHP
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extension-csv: xdebug #optional
+    - name: Check PHP Version
+      run: php -v
     - name: Validate composer.json and composer.lock
       run: composer validate
-
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-
     - name: Run test suite
       run: vendor/bin/grumphp run
